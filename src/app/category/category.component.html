@@ -1,0 +1,21 @@
+<button mat-button [matMenuTriggerFor]="menu">{{option.categoryName}}</button>
+  <mat-menu #menu="matMenu">
+      <ng-container *ngFor="let item of items" >
+        <div fxLayout="row" fxLayoutAlign="space-between">
+    <button 
+     (click)="selectCategory(category)" mat-menu-item>{{item.itemName| titlecase}} 
+    </button>
+    <div class="input-group">
+        <input type="button" value="-" class="button-minus" data-field="quantity">
+        <span class="quantity-field"> 
+            {{item.count}}
+        </span>
+        <input type="button" value="+" class="button-plus" data-field="quantity">
+      </div>
+    </div>
+    </ng-container>
+    <div>
+        <button>Cancel</button>
+        <button>Done</button>
+    </div>
+  </mat-menu>
