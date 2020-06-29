@@ -1,61 +1,23 @@
-input,
-textarea {
-  border: 1px solid #eeeeee;
-  box-sizing: border-box;
-  margin: 0;
-  outline: none;
-  padding: 10px;
-}
 
-input[type="button"] {
-  -webkit-appearance: button;
+.btn-group .button-minus,
+.btn-group .button-plus {
+  padding: 5px;
   cursor: pointer;
+  color: #1D72E8;
+  border: none;
+  border-radius: 10px;
+  background-color: #E8F0FE;
+  &.disabled{
+    color: #CCCCCC !important;
+    background-color: #F5F6F7 !important;
+    }
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-.input-group {
-  clear: both;
-  margin: 15px 0;
+.btn-group .quantity-field {
   position: relative;
-}
-
-.input-group input[type='button'] {
-  background-color: #eeeeee;
-  min-width: 38px;
-  width: auto;
-  transition: all 300ms ease;
-}
-
-.input-group .button-minus,
-.input-group .button-plus {
-  font-weight: bold;
-  height: 38px;
-  padding: 0;
-  width: 38px;
-  position: relative;
-}
-
-.input-group .quantity-field {
-  position: relative;
-  height: 38px;
-  left: -6px;
   text-align: center;
-  width: 62px;
   display: inline-block;
+  vertical-align: super;
   font-size: 13px;
-  margin: 0 0 5px;
-  resize: vertical;
-}
-
-.button-plus {
-  left: -13px;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-  -webkit-appearance: none;
+  margin: 5px 10px;
 }

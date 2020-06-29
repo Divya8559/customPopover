@@ -1,21 +1,25 @@
-<button mat-button [matMenuTriggerFor]="menu">{{option.categoryName}}</button>
-  <mat-menu #menu="matMenu">
-      <ng-container *ngFor="let item of items" >
+<button mat-button [matMenuTriggerFor]="trigger" (menuOpened)="getValue()" (menuClosed)="checkState()" class="btn btn--reset">
+    <span *ngIf="totalCount > 0">{{totalCount}}</span> {{option.categoryName | titlecase}} <mat-icon>arrow_drop_down</mat-icon>
+</button>
+<mat-menu #trigger="matMenu">
+    <ng-container *ngFor="let item of items">
         <div fxLayout="row" fxLayoutAlign="space-between">
-    <button 
-     (click)="selectCategory(category)" mat-menu-item>{{item.itemName| titlecase}} 
-    </button>
-    <div class="input-group">
-        <input type="button" value="-" class="button-minus" data-field="quantity">
-        <span class="quantity-field"> 
-            {{item.count}}
-        </span>
-        <input type="button" value="+" class="button-plus" data-field="quantity">
-      </div>
-    </div>
+            <span mat-menu-item>{{item.itemName| titlecase}} </span>
+            <div class="btn-group" (click)="$event.stopPropagation()">
+                <button role="button" [class.disabled]= "item.itemCount === 0" [disabled]="item.itemCount === 0" (click)="[subtractValue(item), '$event.stopPropagation()']" class="button-minus" data-field="quantity">
+                    <mat-icon aria-hidden="false" >horizontal_rule</mat-icon>
+                </button>
+                <span class="quantity-field"> 
+                {{item.itemCount}}
+                </span>
+                <button role="button" (click)="[addValue(item), '$event.stopPropagation()']" class="button-plus" data-field="quantity">
+                    <mat-icon aria-hidden="false" >add</mat-icon>
+                </button>
+            </div>
+        </div>
     </ng-container>
-    <div>
-        <button>Cancel</button>
-        <button>Done</button>
+    <div fxLayout="row" fxLayoutAlign="flex-end" >
+        <button (click)="closeMenu(false)" class="btn btn--reset text-secondary">Cancel</button>
+        <button (click)="closeMenu(true)" class="btn btn--reset text-primary">Done</button>
     </div>
-  </mat-menu>
+</mat-menu>

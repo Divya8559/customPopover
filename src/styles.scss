@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+$primary: #448AFF;
+$secondary: #FFF;
+$warning: #D32F2F;
+
+.btn {
+    padding: 10px;
+    cursor: pointer;
+    mat-icon {
+        vertical-align: middle;
+    }  
+}
+.btn--reset{
+    border: none;
+    background-color: transparent;
+}
+.btn-warning{
+    color: $warning;
+    
+}
+.btn-primary{
+    background-color: $primary !important;
+    
+}
+.btn-secondary{
+    background-color: $secondary !important;
+    
+}
+.text-warning{
+    color: $warning;
+}
+.text-primary{
+    color: $primary !important;
+}
+.text-secondary{
+    color: #ccc !important;
+
+}
