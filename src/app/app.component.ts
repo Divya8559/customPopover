@@ -12,27 +12,26 @@ import { Categories } from './category.model';
 export class AppComponent implements OnInit {
   title = 'popover-app';
   mockData: any;
-  categories:  Categories[];
+  categories: Categories[];
   constructor(){
     this.categories = [];
   }
-  ngOnInit(){
+  ngOnInit(): void {
     this.mockData = MockData;
     const keysInMockData = _.keys(this.mockData.categories);
     keysInMockData.forEach(value => {
-      this.categories.push(new Categories(value))
-    })
-   
+      this.categories.push(new Categories(value));
+    });
   }
-  selectCategory(category){
+  selectCategory(category): any {
     this.categories = this.categories.map(cat => {
-      if(cat.categoryName === category.categoryName){
+      if (cat.categoryName === category.categoryName) {
         cat.isSelected = !category.isSelected;
       }
       return cat;
-    })
+    });
   }
-  getItems(name){
+  getItems(name): any {
    return this.mockData.categories[name];
   }
 }

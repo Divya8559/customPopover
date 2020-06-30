@@ -20,32 +20,30 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     const selectedItem = [];
     this.items.forEach(value => {
-      selectedItem.push(new Items(value))
-    })
+      selectedItem.push(new Items(value));
+    });
     this.items = selectedItem;
-    console.log(this.items)
-    
   }
 
-  addValue(item) {
+  addValue(item): any {
     this.items.map((it) => {
-      if(it.itemName === item.itemName) {
+      if (it.itemName === item.itemName) {
         it.itemCount = it.itemCount + 1;
       }
       return it;
     });
   }
 
-  subtractValue(item) {
+  subtractValue(item): any {
     this.items.map((it) => {
-      if(it.itemName === item.itemName) {
+      if (it.itemName === item.itemName) {
         it.itemCount = it.itemCount - 1;
       }
       return it;
     });
   }
-  closeMenu(showResult) {
-    if(showResult ) {
+  closeMenu(showResult): void {
+    if (showResult ) {
       this.totalCount = 0;
       this.items.forEach(element => {
         this.totalCount = this.totalCount + element.itemCount;
@@ -53,15 +51,15 @@ export class CategoryComponent implements OnInit {
     }
     this.showTotal = showResult;
     this.trigger.closeMenu();
-
   }
-  checkState() {
-    if(this.showTotal === false) {
+
+  checkState(): void {
+    if (this.showTotal === false) {
       this.items = this.cloneItems;
     }
   }
 
-  getValue() {
+  getValue(): void {
    this.cloneItems = _.cloneDeep(this.items);
   }
 }

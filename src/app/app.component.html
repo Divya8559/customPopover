@@ -1,18 +1,17 @@
 <div class="mat-app-background">
   <mat-toolbar fxLayout="row" fxLayoutAlign="space-between">
-  <div *ngFor= "let options of categories" fxLayout="row" fxLayoutAlign="space-between">
-    <app-category *ngIf= "options.isSelected" [option]= "options" [items]= "getItems(options.categoryName)"></app-category>
-  </div>
-  <div>
-  <button mat-button [matMenuTriggerFor]="menu" class="btn btn--reset">
-    <span class="text-warning" >Category </span><mat-icon>arrow_drop_down</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button *ngFor="let category of categories" mat-button
-    (click)="selectCategory(category)" mat-menu-item>
-      <mat-icon aria-hidden="false" [ngClass]="category.isSelected? 'show-icon' : 'hide-icon'">done</mat-icon>{{category.categoryName | titlecase}}
-    </button>
-  </mat-menu>
-</div>
-</mat-toolbar>
+    <div *ngFor= "let options of categories" fxLayout="row" fxLayoutAlign="space-between">
+      <app-category *ngIf= "options.isSelected" [option]= "options" [items]= "getItems(options.categoryName)"></app-category>
+    </div>
+    <div>
+      <button mat-button [matMenuTriggerFor]="menu" class="btn btn--reset">
+        <span class="text-warning" >Category </span><mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button *ngFor="let category of categories" mat-button (click)="selectCategory(category)" mat-menu-item>
+          <mat-icon aria-hidden="false" [ngClass]="category.isSelected? 'show-icon' : 'hide-icon'">done</mat-icon>{{category.categoryName | titlecase}}
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
 </div>

@@ -13,6 +13,10 @@ $warning: #D32F2F;
     mat-icon {
         vertical-align: middle;
     }  
+    &:focus {
+        outline: none;
+        box-shadow: none;
+      }
 }
 .btn--reset{
     border: none;
@@ -37,6 +41,9 @@ $warning: #D32F2F;
     color: $primary !important;
 }
 .text-secondary{
-    color: #ccc !important;
+    color: #9E9E9E !important;
 
+}
+.mat-menu-content {
+    padding: 15px;
 }
